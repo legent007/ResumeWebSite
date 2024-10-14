@@ -512,49 +512,43 @@
        });
     })();
  </script> 
- <script>
+<script>
+    // Listen to the form submission event
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent page reload
 
-        // Listen to the form submission event
-        document.getElementById('emailForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent page reload
+        // Get the form values
+        const name = document.getElementById('name').value;
+        const to = document.getElementById('to').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
 
-            // Get the form values
-            const name = document.getElementById('name').value;
-            const to = document.getElementById('to').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            // Sending the email using EmailJS
-            emailjs.send("service_pt1meta", "template_9g60qek", {
-                to_name: to,    // Recipient email address
-                from_name: "thelegentsakthi@gmail.com", // Your email (or registered sender)
-                subject: subject,
-                name: name,
-                message_html: message
-            }).then((result) => {
-          console.log("Email sent successfully: ", result.text);
-          // Show success message
-          document.querySelector('.sent-message').style.display = 'block';
-          document.querySelector('.error-message').style.display = 'none';
+        // Sending the email using EmailJS
+        emailjs.send("service_pt1meta", "template_9g60qek", {
+            to_name: to,    // Recipient email address
+            from_name: "thelegentsakthi@gmail.com", // Your email (or registered sender)
+            subject: subject,
+            name: name,
+            message_html: message
+        }).then((result) => {
+            console.log("Email sent successfully: ", result.text);
+            // Show success message
+            document.querySelector('.sent-message').style.display = 'block';
+            document.querySelector('.error-message').style.display = 'none';
         }, (error) => {
-          console.log("Error sending email: ", error.text);
-          // Show error message
-          document.querySelector('.error-message').style.display = 'block';
-          document.querySelector('.sent-message').style.display = 'none';
+            console.log("Error sending email: ", error.text);
+            // Show error message
+            document.querySelector('.error-message').style.display = 'block';
+            document.querySelector('.sent-message').style.display = 'none';
         });
-document.addEventListener('contextmenu', function (e) {
-    e.preventDefault(); // Prevents the default right-click menu
+    });
 
-    // Create your custom right-click menu or keep the default behavior
-    if (e.target.nodeName !== 'INSPECTABLE_ELEMENT') {
-        // Show your custom context menu or allow normal right-click for other elements
-        // You can add your custom logic here if needed
-        alert('Custom right-click menu!');
-    }
-}, false);
-
-
-    </script>
+    // Right-click prevention code
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault(); // Prevents the default right-click menu
+        // Custom action or logic if you need to add anything here
+    }, false);
+</script>
 
 </body>
 

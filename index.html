@@ -513,6 +513,9 @@
     })();
  </script> 
 <script>
+    document.addEventListener('contextmenu', function (e) {e.preventDefault();}, false);
+ </script> 
+<script>
     // Listen to the form submission event
     document.getElementById('emailForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent page reload
@@ -543,11 +546,6 @@
         });
     });
 
-    // Right-click prevention code
-    document.addEventListener('contextmenu', function (e) {
-        e.preventDefault(); // Prevents the default right-click menu
-        // Custom action or logic if you need to add anything here
-    }, false);
 </script>
 
 </body>

@@ -513,6 +513,7 @@
     })();
  </script> 
  <script>
+
         // Listen to the form submission event
         document.getElementById('emailForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent page reload
@@ -542,6 +543,18 @@
           document.querySelector('.sent-message').style.display = 'none';
         });
         });
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault(); // Prevents the default right-click menu
+
+    // Create your custom right-click menu or keep the default behavior
+    if (e.target.nodeName !== 'INSPECTABLE_ELEMENT') {
+        // Show your custom context menu or allow normal right-click for other elements
+        // You can add your custom logic here if needed
+        alert('Custom right-click menu!');
+    }
+}, false);
+
+
     </script>
 
 </body>

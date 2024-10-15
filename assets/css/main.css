@@ -337,7 +337,12 @@ h6 {
   font-size: 13px;
   padding-top: 5px;
 }
-
+.badge-success {
+    color: #fff;
+    background-color: #28a745;
+    font-size: small;
+    font-family: sans-serif;
+}
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
